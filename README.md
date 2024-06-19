@@ -6,6 +6,8 @@ This repository ccontains a bunch of notes and code that I have implemented thro
 - [Policy Iteration using iterative policy evaluation on FrozenLake-v1](https://github.com/jasoon-chen/handwrittenNotes/blob/main/RLCode/DynamicProgramming/policyIteration.ipynb)
 - [Value Iteration on FrozenLake-v1](https://github.com/jasoon-chen/handwrittenNotes/blob/main/RLCode/DynamicProgramming/valueIteration.ipynb)
 
-To run the code on your own computer, you need to install [GymLibrary](https://www.gymlibrary.dev/content/basic_usage/). There really isn't any good tutorial on how to run this except for this one that I found on [here](https://www.youtube.com/watch?v=e3DyCg0fgx0). I'm running all of the code on conda version 24.5.0 with python version 3.9.19.
+To run the code on your own computer, you need to install [GymLibrary](https://www.gymlibrary.dev/content/basic_usage/). There really isn't any good tutorial on how to run this except for this one that I found on [here](https://www.youtube.com/watch?v=e3DyCg0fgx0). I'm running all of the code on c`onda version 24.5.0` with `python version 3.9.19`.
+
+The psuedo-code for all of the RL Code is from `An introduction to Reinforcement Learning, Sutton and Barto, Second Edition`
 
 
