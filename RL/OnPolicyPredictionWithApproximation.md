@@ -59,3 +59,42 @@ $w_{t+1} = w_{t} + \alpha[R_{t+1}+\gamma\hat{q}(S_{t+1},A_{t+1},w_{t+1} - \hat{q
 
 To form control methods, we need to couple such action-value prediction methods with techniques for policy improvement and action selection. Suitable techniques applicable to continuous actions, or to actions from large discrete sets, are a topic of ongoing research with as yet no clear resolution. On the other hand, if the action set is discrete and not too large, then we can use the techniques already developed in previous chapters. That is, for each possible action a available in the current state $S_{t}$, we can compute $\hat{q}(S_{t},a,w_{t})$ and then find the greedy action. Policy improvement is then done (in the on-policy case treated in this chapter) by changing the estimation policy to a soft approximation of the greedy policy such as the "-greedy policy. Actions are selected according to this same policy.
 ![alt text](../RL/images/image-2.png)
+
+# Expected Sarsa and Q-Learning with Function Approximation
+
+In the regular Sarsa the function approximation was this:
+
+$w \leftarrow w + \alpha(R_{t+1}+\gamma\hat{q}(S_{t+1},A_{t+1},w)-\hat{q}(S_{t},A_{t},w))\nabla\hat{q}(S_{t},A_{t},w)$
+
+To convert this into **expected Sarsa** you sum over the expected values of each action:
+
+$w \leftarrow w + \alpha(R_{t+1}+\gamma\sum_{a'}\pi(a'|S_{t+1})\hat{q}(S_{t+1},a',w)-\hat{q}(S_{t},A_{t},w))\nabla\hat{q}(S_{t},A_{t},w)$
+
+To convert this into the **Q-Learning** you just take the greedy policy or the max:
+
+$w \leftarrow w + \alpha(R_{t+1}+\gamma * max_{a'}\hat{q}(S_{t+1},a',w)-\hat{q}(S_{t},A_{t},w))\nabla\hat{q}(S_{t},A_{t},w)$
+
+# Initialize Values Optimistically
+
+One way to initialize values optimistically under Function Approximation are through theres 2 ways.
+
+Let's say we have a linear function approximation which:
+$q_{\pi}(s,a)\approx\hat{q}(s,a,w) = w^{T}x(s,a)$
+
+You can set the $\begin{bmatrix} 100\\ 100\\...\\100\\100\end{bmatrix}$, which you could set it some values that is the largest possible return. Therefore as long as each state has at least one feature that is active, the value will optimistic and likely overly so. However, in non-linear function appriximation such as $q_{\pi}(s,a)\approx\hat{q}(s,a,w) = NN(s,a,w)$ it is complicated to provide optimistic values. There could be situations where you would output negative values even with positive initial weights such as the tanh activation function. 
+
+# Average Reward
+
+Like the discounted setting, the average reward setting applies to continuing problems, problems for which the interaction between agent and environment goes on and on forever without termination or start states. Unlike that setting, however, there is no discounting—the agent cares just as much about delayed rewards as it does about immediate reward. The average-reward setting is one of the major settings commonly considered in the classical theory of dynamic programming and less-commonly in reinforcement learning.
+
+In the average-reward setting, the quality of a policy $\pi$ is defined as the average rate of reward, or simply the average reward, while following that policy which will be denoted as $r(\pi)$:
+
+$r(\pi) = \lim_{h\rightarrow\infty} \frac{1}{h}\sum^{h}_{t=1}E[R_{t} | S_{0},A_{0:t-1}~\pi]$
+$=\sum_{s}\mu_{pi}(s)\sum_{a}\pi(a|s)\sum_{s',r}p(s',r|s,a)r$
+
+The differential return is:
+
+$G_{t}=R_{t+1}-r(\pi)+R_{t+2}-r(\pi)+R_{t+3}-r(\pi)+...$
+
+This is an example algorithm that utilizes differential semi-gradient Sarsa.
+![alt text](../RL/images/differential.png)
