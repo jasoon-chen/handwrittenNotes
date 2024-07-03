@@ -90,6 +90,7 @@ Like the discounted setting, the average reward setting applies to continuing pr
 In the average-reward setting, the quality of a policy $\pi$ is defined as the average rate of reward, or simply the average reward, while following that policy which will be denoted as $r(\pi)$:
 
 $r(\pi) = \lim_{h\rightarrow\infty} \frac{1}{h}\sum^{h}_{t=1}E[R_{t} | S_{0},A_{0:t-1}~\pi]$
+
 $=\sum_{s}\mu_{pi}(s)\sum_{a}\pi(a|s)\sum_{s',r}p(s',r|s,a)r$
 
 The differential return is:
@@ -98,3 +99,5 @@ $G_{t}=R_{t+1}-r(\pi)+R_{t+2}-r(\pi)+R_{t+3}-r(\pi)+...$
 
 This is an example algorithm that utilizes differential semi-gradient Sarsa.
 ![alt text](../RL/images/differential.png)
+
+The continuing, discounted problem formulation has been very useful in the tabular case, in which the returns from each state can be separately identified and averaged. But in the approximate case it is questionable whether one should ever use this problem formulation. To see why, consider an infinite sequence of returns with no beginning or end, and no clearly identified states. The states might be represented only by feature vectors, which may do little to distinguish the states from each other. As a special case, all of the feature vectors may be the same. Thus one really has only the reward sequence (and the actions), and performance has to be assessed purely from these. How could it be done? One way is by averaging the rewards over a long interval—this is the idea of the average-reward setting. How could discounting be used? Well, for each time step we could measure the discounted return. Some returns would be small and some big, so again we would have to average them over a sufficiently large time interval. In the continuing setting there are no starts and ends, and no special time steps, so there is nothing else that could be done. However, if you do this, it turns out that the average of the discounted returns is proportional to the average reward.
