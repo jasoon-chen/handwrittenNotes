@@ -9,6 +9,7 @@ This repository ccontains a bunch of notes and code that I have implemented thro
 - [First-visit MC Prediciton on FrozenLake-v1](https://github.com/jasoon-chen/handwrittenNotes/blob/main/RLCode/MonteCarlo/firstVisitMonteCarlo.ipynb)
 - [Monte Carlo Exploring Starts on FrozenLake-v1](https://github.com/jasoon-chen/handwrittenNotes/blob/main/RLCode/MonteCarlo/onPolicyFirstVisitMonteCarlo.ipynb)
 - [REINFORCE: Monte-Carlo Policy-Gradient Control on MountainCar-v0](https://github.com/jasoon-chen/handwrittenNotes/blob/main/RLCode/MonteCarlo/reinforceMonteCarloPolicyGradientControl.ipynb)
+- [REINFORCE with Baseline: Monte-Carlo Policy-Graduent Control on MountainCar-v0](https://github.com/jasoon-chen/handwrittenNotes/blob/main/RLCode/MonteCarlo/reinforceMonteCarloPolicyGradientControlwithBaseline.ipynb)
 ### Temporal Difference
 - [Tabular TD(0) on FrozenLake-v1](https://github.com/jasoon-chen/handwrittenNotes/blob/main/RLCode/TemporalDifference/tabularTD0.ipynb)
 - [Sarsa on FrozenLake-v1](https://github.com/jasoon-chen/handwrittenNotes/blob/main/RLCode/TemporalDifference/Sarsa.ipynb)
