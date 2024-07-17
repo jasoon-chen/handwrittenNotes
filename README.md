@@ -18,6 +18,7 @@ This repository ccontains a bunch of notes and code that I have implemented thro
 - [N-Step TD Learning on FrozenLake-v1](https://github.com/jasoon-chen/handwrittenNotes/blob/main/RLCode/TemporalDifference/nStepTDLearning.ipynb)
 - [N-Steo Sarsa Learning on FrozenLake-v1](https://github.com/jasoon-chen/handwrittenNotes/blob/main/RLCode/TemporalDifference/nStepSarsa.ipynb)
 - [Episodic Semi-Gradient Sarsa on MountainCar-v0](https://github.com/jasoon-chen/handwrittenNotes/blob/main/RLCode/TemporalDifference/episodicSemiGradientSarsa.ipynb)
+- [One-Step Actor-Critic on MountainCar-v0](https://github.com/jasoon-chen/handwrittenNotes/blob/main/RLCode/TemporalDifference/oneStepActorCritic.ipynb)
 ### Tabular Methods
 - [Tabular Dyna-Q on FrozenLake-v1](https://github.com/jasoon-chen/handwrittenNotes/blob/main/RLCode/TabularMethods/tabularDynaQ.ipynb)
 
